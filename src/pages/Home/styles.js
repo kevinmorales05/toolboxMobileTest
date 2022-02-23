@@ -20,19 +20,44 @@ const styles = StyleSheet.create({
     cardBox:{
         border:'1px solid #057BAD',
         padding:10,
-        height:500,
         flex:1,
     },
     poster:{
         height:400,
-        width:340,
+        width:320,
         border:5,
         borderColor:'blue',
         padding:10,
         margin:10,
         borderRadius:10,
         backgroundColor:'red'
-    }
+    },
+    thumbr:{
+        height:250,
+        width:320,
+        border:5,
+        borderColor:'blue',
+        padding:10,
+        margin:10,
+        borderRadius:10,
+        backgroundColor:'blue',
+        justifyContent:'center',
+    },
+    textPoster:{
+        position:'absolute',
+        bottom:15,
+        fontSize:20,
+        right:130,
+        color:'white',
+        textAlign:'center',
+        fontWeight:'bold',
+    },
+    textThumbr:{
+        fontSize:15,
+        textAlign:'center',
+        color:'white',
+        fontWeight:'bold',
+    },
 
 });
 
