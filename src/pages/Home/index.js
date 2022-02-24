@@ -27,8 +27,6 @@ export default function Home({navigation}) {
       });
   }, []);
 
-  const UserContex = useContext(UserContext);
-  
   return (
     <ScrollView style={{backgroundColor:'black'}}>
       <Text></Text>
@@ -90,20 +88,4 @@ export default function Home({navigation}) {
   );
 }
 
-/*
-                  <Modal isOpen={showVideo} onClose={() => setShowVideo(false)} key={item.title}>
-                        <Modal.Body>
-                        <Video
-                          source={{uri: item.videoUrl}} // Can be a URL or a local file.
-                          style={{
-                            height: 600,
-                            width: 320,
-                            justifyContent: 'center',
-                            alignContent: 'center',
-                            margin: 0,
-                          }}
-                          
-                        />
-                        </Modal.Body>
-                      </Modal>
-*/
+
