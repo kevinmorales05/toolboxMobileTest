@@ -1,17 +1,15 @@
-import {ScrollView, Image, Pressable, Modal, Button} from 'native-base';
+import {ScrollView, Image, Pressable } from 'native-base';
 import React from 'react';
 import {useEffect, useState, useContext} from 'react';
 import {Text, View} from 'react-native';
 import styles from './styles';
 import axios from 'axios';
 import UserContext from '../../context/UserContext';
-import Video from 'react-native-video';
 
 export default function Home() {
   const {token, type} = useContext(UserContext);
   const [moviesData, setMoviesData] = useState([]);
   const [showVideo, setShowVideo] = useState(false);
-  const [fullScreen, setFullScreen] = useState(false);
   useEffect(() => {
     const data = axios
       .get('https://echo-serv.tbxnet.com/v1/mobile/data', {
@@ -31,12 +29,12 @@ export default function Home() {
   const UserContex = useContext(UserContext);
   console.log('contexto', UserContex);
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor:'black'}}>
       <Text></Text>
       {moviesData.map((item, index) => {
         return (
           <View key={index} style={styles.cardBox}>
-            <Text style={{fontSize: 30}}>{item.title}</Text>
+            <Text style={{fontSize: 20, color:'white', fontWeight:'bold'}}>{item.title}</Text>
             {item.type === 'poster' ? (
               <>
                 <ScrollView horizontal={true}>

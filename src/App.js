@@ -7,10 +7,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NativeBaseProvider} from 'native-base';
 const App = () => {
   const Stack = createNativeStackNavigator();
-  const UserData = {
-    token: '12345',
-    type: 'admin',
-  };
+  
   const [token, setToken] = useState("");
   const [type, setType] = useState("second")
 
@@ -27,7 +24,7 @@ const App = () => {
             options={{
               title: 'My Movies',
               headerStyle: {
-                backgroundColor: '#f4511e',
+                backgroundColor: '#2CBBFA',
               },
               headerTintColor: '#fff',
               headerTitleStyle: {

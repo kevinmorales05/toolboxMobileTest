@@ -1,4 +1,3 @@
-import { text } from 'express';
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
@@ -6,7 +5,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',  
         height: '100%',
-        backgroundColor:'#2CBBFA',
+        backgroundColor:'black',
     },
     mainText:{
         fontSize: 30,

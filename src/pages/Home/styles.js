@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',  
         height: '100%',
-        backgroundColor:'#2CBBFA',
+        backgroundColor:'black',
     },
     mainText:{
         fontSize: 30,
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         padding:10,
         margin:10,
         borderRadius:10,
-        backgroundColor:'red'
+        backgroundColor:'white'
     },
     thumbr:{
         height:250,
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         padding:10,
         margin:10,
         borderRadius:10,
-        backgroundColor:'blue',
+        backgroundColor:'#057BAD',
         justifyContent:'center',
     },
     textPoster:{

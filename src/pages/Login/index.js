@@ -1,17 +1,17 @@
 import React from 'react';
 import {useState, useContext} from 'react';
 import {Text, TextInput} from 'react-native';
-//import {useHistory} from 'react-router-dom';
 import styles from './styles';
-import {Center, VStack, Button} from 'native-base';
+import {Center, VStack, Button, useToast} from 'native-base';
 import axios from 'axios';
 import UserContext from '../../context/UserContext';
 
+
 export default function Login({navigation}) {
-  //let history = useHistory();
   const [keyword, setKeyword] = useState('');
   const [loading, setLoading] = useState(false);
   const [dataUser, setdataUser] = useState('');
+  const toast = useToast();
 
   const {setToken, setType} = useContext(UserContext);
 
@@ -20,20 +20,21 @@ export default function Login({navigation}) {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
-    //"ToolboxMobileTest"
-    console.log('desde el login', keyword);
     const data = axios
       .post('https://echo-serv.tbxnet.com/v1/mobile/auth', {sub: keyword })
       .then(function (response) {
         setdataUser(response.data);
-        console.log('DESDE EL SERVIDOR', dataUser);
         setToken(response.data.token);
         setType(response.data.type);
         setKeyword(' ');
         navigation.navigate('Home');
       })
       .catch(function (error) {
-        alert('Wrong keyword!');
+        toast.show({
+          description: "Wrong keyword, try again!",
+          placement: "bottom",
+          backgroundColor: "#057BAD"
+        });
         setKeyword(' ');
       });
   };
@@ -41,13 +42,14 @@ export default function Login({navigation}) {
     <Center style={styles.container}>
       <Text style={styles.mainText}>Login</Text>
       <VStack space={4} alignItems="center">
-        <Center w="64" h="20" bg="#FAA139" rounded="md" shadow={3}>
+        <Center w="64" h="20" bg="#2CBBFA" rounded="md" shadow={3}>
+          
           <Text>Keyword</Text>
           <TextInput
             onChangeText={setKeyword}
             value={keyword}
             placeholder="Please write your keyword"
-            keyboardType="text"
+            keyboardType="default"
           />
         </Center>
         <Center>
