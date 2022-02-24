@@ -6,7 +6,7 @@ import styles from './styles';
 import axios from 'axios';
 import UserContext from '../../context/UserContext';
 
-export default function Home() {
+export default function Home({navigation}) {
   const {token, type} = useContext(UserContext);
   const [moviesData, setMoviesData] = useState([]);
   const [showVideo, setShowVideo] = useState(false);
@@ -20,14 +20,15 @@ export default function Home() {
       })
       .catch(function (error) {
         alert('Please login to see the data');
+        navigation.navigate('Login');
       })
       .then(function () {
-        // always executed
+      
       });
   }, []);
 
   const UserContex = useContext(UserContext);
-  console.log('contexto', UserContex);
+  
   return (
     <ScrollView style={{backgroundColor:'black'}}>
       <Text></Text>
@@ -40,7 +41,7 @@ export default function Home() {
                 <ScrollView horizontal={true}>
                   {item.items.map((item, index) => {
                     return (
-                      <View key={index} style={styles.poster}>
+                      <Pressable key={index} style={styles.poster}>
                         <Image
                           source={{
                             uri: item.imageUrl,
@@ -49,7 +50,7 @@ export default function Home() {
                           style={{width: 300, height: '100%'}}
                         />
                         <Text style={styles.textPoster}>{item.title}</Text>
-                      </View>
+                      </Pressable>
                     );
                   })}
                 </ScrollView>
